@@ -63,19 +63,19 @@ const filmPhotos = [
   "/photos/f4.jpg",
 ];
 
-
-
+const colors = [
+    { front: 'red', back: 'darkred' }, { front: 'pink', back: 'deeppink' },
+    { front: 'purple', back: 'darkpurple' }, { front: 'orange', back: 'darkorange' }
+];
 function App() {
   const [step, setStep] = useState('valentine');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [noClicks, setNoClicks] = useState(0);
-  const [showLetter, setShowLetter] = useState(false);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const confettiRef = useRef([]);
-  const [giftStep, setGiftStep] = useState(1);
   const [page, setPage] = useState("main");
   const [cinematic, setCinematic] = useState(false);
   const musicRef = useRef(null);
@@ -85,12 +85,6 @@ function App() {
   const [bgIndex, setBgIndex] = useState(0);
   const noBtnRef = useRef(null);
 
-
-
-  const colors = [
-    { front: 'red', back: 'darkred' }, { front: 'pink', back: 'deeppink' },
-    { front: 'purple', back: 'darkpurple' }, { front: 'orange', back: 'darkorange' }
-  ];
 
   // Fixed confetti effect - no useCallback inside useEffect
   useEffect(() => {
@@ -289,7 +283,6 @@ function App() {
 
   const openLetter = () => {
     setPage("letter");
-    setShowLetter(true);
     triggerConfetti();
     createHearts();
   };
@@ -300,7 +293,6 @@ function App() {
     setAnswers([]);
     setScore(0);
     setNoClicks(0);
-    setShowLetter(false);
     triggerConfetti();
   };
 
@@ -429,7 +421,7 @@ function App() {
             <section className="section">
               <h2>💝 Few Gifts for You</h2>
                <div>
-              <button className="btn" onClick={() => setPage("letter")}>
+              <button className="btn" onClick={openLetter}>
                 Love Letter 💌
               </button>
               </div>
