@@ -31,6 +31,9 @@ const bgImages = [
   "/photos/f2.jpg",
   "/photos/f3.jpg",
   "/photos/f4.jpg",
+  "/photos/f5.jpg",
+  "/photos/f6.jpg",
+  "/photos/f7.jpg",
 ];
 
 
@@ -62,6 +65,9 @@ const filmPhotos = [
   "/photos/f2.jpg",
   "/photos/f3.jpg",
   "/photos/f4.jpg",
+  "/photos/f5.jpg",
+  "/photos/f6.jpg",
+  "/photos/f7.jpg",
 ];
 
 const colors = [
@@ -89,15 +95,11 @@ function App() {
   const introSoundRef = useRef(null);
 
 
- useEffect(() => {
-   introSoundRef.current?.play();
-
-   const timer = setTimeout(() => {
-     setShowIntro(false);
-   }, 3000);
-
-   return () => clearTimeout(timer);
- }, []);
+useEffect(() => {
+  introSoundRef.current?.play().catch(() => {});
+  const timer = setTimeout(() => setShowIntro(false), 3000);
+  return () => clearTimeout(timer);
+}, []);
 
 
 
@@ -315,7 +317,7 @@ function App() {
   if (showIntro) {
     return (
       <div className="netflix-intro">
-        <audio ref={introSoundRef}>
+        <audio ref={introSoundRef} autoPlay>
           <source src="/music/netflix.mp3" type="audio/mpeg" />
         </audio>
 
