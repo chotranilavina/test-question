@@ -44,13 +44,13 @@ const noGifs = [
 ];
 
 const polaroidPhotos = [
-  { src: "/photos/2.jpeg", msg: "Vashi Social 2023" },
-  { src: "/photos/1.jpeg", msg: "Pune 2023" },
+  { src: "/photos/2.jpg", msg: "Vashi Social 2023" },
+  { src: "/photos/1.jpg", msg: "Pune 2023" },
   { src: "/photos/3.jpg", msg: "Butterfly beach Goa 2023" },
   { src: "/photos/4.jpg", msg: "Mayan Beach Club Goa 2023" },
   { src: "/photos/5.jpg", msg: "Spiti 2024" },
   { src: "/photos/6.jpg", msg: "Spiti 2024" },
-  { src: "/photos/9.jpeg", msg: "Uway Vadodara 2024" },
+  { src: "/photos/9.jpg", msg: "Uway Vadodara 2024" },
   { src: "/photos/7.jpg", msg: "Coldplay Ahmedabad 2025" },
   { src: "/photos/8.jpg", msg: "Uway Vadodara 2025" }
 ];
