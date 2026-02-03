@@ -4,7 +4,8 @@ import './App.css';
 const questions = [
   { q: "When's your actual birthdate?", options: ["19th Sept 1996", "19th Sept 1997", "19th Sept 1995"], correct: 2 },
   { q: "Favorite trip together?", options: ["Goa", "Spiti", "Our Next Trip"], correct: 2 },
-  { q: "My Favourite Show?", options: ["Bojack Horseman", "Game of Thrones", "The Office"], correct: 0 }
+  { q: "My Favourite Show?", options: ["Bojack Horseman", "Game of Thrones", "The Office"], correct: 0 },
+  { q: "Favourite Person?", options: ["Kevin De Bruyne", "Me"], correct: 1 }
 ];
 const noMessages = [
   "No",
@@ -84,6 +85,21 @@ function App() {
   const [showCorrect, setShowCorrect] = useState(null);
   const [bgIndex, setBgIndex] = useState(0);
   const noBtnRef = useRef(null);
+  const [showIntro, setShowIntro] = useState(true);
+  const introSoundRef = useRef(null);
+
+
+ useEffect(() => {
+   introSoundRef.current?.play();
+
+   const timer = setTimeout(() => {
+     setShowIntro(false);
+   }, 3000);
+
+   return () => clearTimeout(timer);
+ }, []);
+
+
 
 
   // Fixed confetti effect - no useCallback inside useEffect
@@ -296,6 +312,21 @@ function App() {
     triggerConfetti();
   };
 
+  if (showIntro) {
+    return (
+      <div className="netflix-intro">
+        <audio ref={introSoundRef}>
+          <source src="/music/netflix.mp3" type="audio/mpeg" />
+        </audio>
+
+        <div className="netflix-logo">
+          Yash
+        </div>
+      </div>
+    );
+  }
+
+
   return (
 
     <div className="App">
@@ -312,7 +343,7 @@ function App() {
       {cinematic && (
         <div className="cinematic-screen">
           <h1>Yayy! He said YES ❤️</h1>
-          <p> You get to be my valentine Yash. I love you and I am so proud of you!</p>
+          <p> I get to be your Valentine. I love you and I am so proud of you!</p>
           <img
             src="/photos/image7.gif"
             alt="love"

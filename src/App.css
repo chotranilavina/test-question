@@ -317,4 +317,41 @@ animation: wiggle 0.5s infinite;
   text-align: center;
   font-family: 'Comic Sans MS', cursive;
 }
+.netflix-intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  overflow: hidden;
+}
+
+.netflix-logo {
+  color: #e50914;
+  font-size: 160px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  animation: netflixReveal 2.5s ease forwards;
+  text-shadow: 0 0 40px rgba(229,9,20,0.7);
+}
+
+@keyframes netflixReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(10px);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
